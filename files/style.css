@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: "Sunflower Highway";
-    src: url("/web/20221112173512im_/https://flyingfigfarm.com/assets/Sunflower-Highway.woff2"); }
+    src: url("Sunflower-Highway.woff2"); }
 
 * {
   display: flexbox;
