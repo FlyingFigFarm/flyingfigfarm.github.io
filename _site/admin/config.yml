@@ -1,0 +1,121 @@
+backend:
+  name: github
+  repo: flyingfigfarm/flyingfigfarm.github.io
+  branch: gh-pages
+
+media_folder: 'assets/img/uploads'
+
+site_url: https://flyfigfarm.com
+logo_url: https://flyfigfarm.com/assets/img/logo.svg
+
+collections:
+  - name: 'photos'
+    label: 'Photos'
+    label_singular: 'Photo'
+    folder: '_posts/photos'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
+          default: 'photo'
+      }
+      - {
+        label: 'Title',
+        name: 'title'
+      }
+      - {
+        label: 'Image',
+        name: 'image',
+        widget: 'image',
+        allow_multiple: false,
+        choose_url: false
+      }
+  - name: 'plants'
+    label: 'Plants'
+    label_singular: 'Plant'
+    folder: '_posts/plants'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    identifier_field: 'commonName'
+    fields:
+      - {
+        label: 'Layout',
+        name: 'layout',
+        widget: 'hidden',
+        default: 'plant'
+      }
+      - {
+        label: 'Common Name',
+        name: 'commonName',
+        widget: 'string'
+      }
+      - {
+        label: 'Latin Name',
+        name: 'latinName',
+        widget: 'string'
+      }
+      - {
+        label: 'Visible',
+        name: 'visible',
+        widget: 'boolean',
+        default: true
+      }
+      - {
+        label: 'Tags',
+        label_singular: 'Tag',
+        name: 'tags',
+        widget: 'list',
+        min: 1,
+        summary: '{{fields.tag}}',
+        field: {
+          label: 'Tag',
+          name: tag,
+          widget: select,
+          options: ['Native', 'Edible']
+        }
+      }
+      - {
+        label: '4" Price',
+        name: 'price4inch',
+        widget: 'number',
+        value_type: 'float',
+        required: false
+      }
+      - {
+        label: '1 Gallon Price',
+        name: 'price1gallon',
+        widget: 'number',
+        value_type: 'float',
+        required: false
+      }
+      - {
+        label: '3 Gallon Price',
+        name: 'price3gallon',
+        widget: 'number',
+        value_type: 'float',
+        required: false
+      }
+      - {
+        label: '5 Gallon Price',
+        name: 'price5gallon',
+        widget: 'number',
+        value_type: 'float',
+        required: false
+      }
+      - {
+        label: 'Light Conditions',
+        label_singular: 'Light Condition',
+        name: 'lightConditions',
+        widget: 'list',
+        min: 1,
+        summary: '{{fields.lightCondition}}',
+        field: {
+          label: 'Light Condition',
+          name: lightCondition,
+          widget: select, 
+          options: ['Sun', 'Partial Sun', 'Shade', 'Partial Shade']
+        }
+      }
